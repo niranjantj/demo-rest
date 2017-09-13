@@ -19,7 +19,7 @@
       <pluginRepositories>
         <pluginRepository>
             <id>nexus-group-repository</id>
-            <url>http://nexus-devops.apps.127.0.0.1.nip.io/nexus/content/groups/public//url>
+            <url>http://nexus-devops.apps.127.0.0.1.nip.io/nexus/content/groups/public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
