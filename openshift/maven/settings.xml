@@ -43,6 +43,15 @@
           <password>admin123</password>
         </server>
   </servers>
+
+  <mirrors>
+    <mirror>
+      <id>nexus-group</id>
+      <name>Nexus mirror</name>
+      <url>http://nexus-devops.apps.127.0.0.1.nip.io</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
  
   <activeProfiles>
     <activeProfile>nexus-group</activeProfile>
