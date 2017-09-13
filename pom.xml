@@ -5,7 +5,7 @@
 
 	<groupId>com.redhat.consulting.spring</groupId>
 	<artifactId>demo-rest</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>demo-rest</name>
@@ -22,17 +22,24 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<nexus.url>http://nexus-devops.192.168.99.100.nip.io</nexus.url>
 	</properties>
 
+	<scm>
+		<url>https://github.com/dsanchor/demo-rest</url>
+		<connection>scm:git:https://github.com/dsanchor/demo-rest.git</connection>
+		<tag>HEAD</tag>
+	</scm>
+
 	<distributionManagement>
-	   <snapshotRepository>
-	      <id>nexus-snapshots</id>
-	      <url>http://nexus-devops.192.168.99.100.nip.io/nexus/content/repositories/snapshots</url>
-	   </snapshotRepository>
-	   <repository>
-	      <id>nexus-releases</id>
-	      <url>http://nexus-devops.192.168.99.100.nip.io/nexus/content/repositories/releases</url>
-	   </repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>${nexus.url}/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>nexus-releases</id>
+			<url>${nexus.url}/nexus/content/repositories/releases</url>
+		</repository>
 	</distributionManagement>
 
 	<dependencies>
@@ -54,23 +61,10 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-                        <!--
-			<plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>fabric8-maven-plugin</artifactId>
-				<version>3.5.25</version>
-				<executions>
-					<execution>
-						<id>fmp</id>
-						<goals>
-							<goal>resource</goal>
-							<goal>helm</goal>
-							<goal>build</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-                        -->
+			<!-- <plugin> <groupId>io.fabric8</groupId> <artifactId>fabric8-maven-plugin</artifactId> 
+				<version>3.5.25</version> <executions> <execution> <id>fmp</id> <goals> <goal>resource</goal> 
+				<goal>helm</goal> <goal>build</goal> </goals> </execution> </executions> 
+				</plugin> -->
 		</plugins>
 	</build>
 
