@@ -1,0 +1,166 @@
+apiVersion: v1
+kind: Template
+labels:
+  template: demo-rest
+  name: demo-rest
+objects:
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: ${NAME}
+      version: ${APP_VERSION}
+    name: ${NAME}
+  spec:
+    nodeSelector: {}
+    output:
+      to:
+        kind: ImageStreamTag
+        name: ${NAME}:${APP_VERSION}
+    postCommit: {}
+    resources: {}
+    runPolicy: Serial
+    source:
+      binary: {}
+      type: Binary
+    strategy:
+      sourceStrategy:
+        from:
+          kind: DockerImage
+          name: redhat-openjdk-18/openjdk18-openshift
+      type: Source
+    triggers: []
+  status:
+    lastVersion: 0
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    labels:
+      app: ${NAME}
+      version: ${APP_VERSION}
+    name: ${NAME}
+  spec:
+    replicas: 1
+    selector:
+      app: ${NAME}
+    strategy:
+      activeDeadlineSeconds: 21600
+      resources: {}
+      rollingParams:
+        intervalSeconds: 1
+        maxSurge: 25%
+        maxUnavailable: 25%
+        timeoutSeconds: 3600
+        updatePeriodSeconds: 1
+      type: Rolling
+    template:
+      metadata:
+        labels:
+          app: ${NAME}
+          version: ${APP_VERSION}
+      spec:
+        containers:
+        - env:
+          - name: KUBERNETES_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: JAVA_APP_DIR
+            value: /deployments
+          image: ${REGISTRY}/${IMAGESTREAM_PROJECT}/${NAME}:${APP_VERSION}
+          imagePullPolicy: IfNotPresent
+          name: spring-boot
+          ports:
+          - containerPort: 8080
+            name: http
+            protocol: TCP
+          - containerPort: 9779
+            name: prometheus
+            protocol: TCP
+          - containerPort: 8778
+            name: jolokia
+            protocol: TCP
+          resources: {}
+          securityContext:
+            privileged: false
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: false
+        containerNames:
+        - spring-boot
+        from:
+          kind: ImageStreamTag
+          name: ${NAME}:${APP_VERSION}
+          namespace: ${IMAGESTREAM_PROJECT}
+      type: ImageChange
+  status:
+    availableReplicas: 0
+    latestVersion: 0
+    observedGeneration: 0
+    replicas: 0
+    unavailableReplicas: 0
+    updatedReplicas: 0
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: ${NAME}
+      expose: "true"
+      version: ${APP_VERSION}
+    name: ${NAME}
+  spec:
+    ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: ${NAME}
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Route
+  metadata:
+    name: ${NAME}
+  spec:
+    to:
+      kind: Service
+      name: ${NAME}
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    generation: 1
+    labels:
+      app: ${NAME}
+      version: ${APP_VERSION}
+    name: ${NAME}
+parameters:
+- description: The name assigned to all of the application objects defined in this template.
+  displayName: Name
+  name: NAME
+  required: true
+  value: demo-rest
+- description: Application version used as tag for the image stream
+  displayName: Application version
+  name: APP_VERSION
+  required: true
+- description: Ip and port to registry (172.30.1.1:5000)
+  displayName: Registry ip:port (172.30.1.1:5000)
+  name: REGISTRY
+  required: true
+- description: Project name where the imagestream resides
+  displayName: Imagestream project
+  name: IMAGESTREAM_PROJECT
+  required: true
+
