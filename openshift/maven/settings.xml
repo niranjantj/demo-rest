@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+  <profiles>
+
+    <profile>
+      <id>nexus-group</id>
+      <repositories>
+        <repository>
+            <id>nexus-group-repository</id>
+            <url>http://nexus-devops.apps.127.0.0.1.nip.io/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+            <id>nexus-group-repository</id>
+            <url>http://nexus-devops.apps.127.0.0.1.nip.io/nexus/content/groups/public//url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
+  <servers>
+        <server>
+          <id>nexus-snapshots</id>
+          <username>admin</username>
+          <password>admin123</password>
+        </server>
+        <server>
+          <id>nexus-releases</id>
+          <username>admin</username>
+          <password>admin123</password>
+        </server>
+  </servers>
+ 
+  <activeProfiles>
+    <activeProfile>nexus-group</activeProfile>
+  </activeProfiles>
+</settings>
