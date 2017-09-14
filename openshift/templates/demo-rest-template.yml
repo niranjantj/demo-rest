@@ -99,7 +99,7 @@ objects:
         - spring-boot
         from:
           kind: ImageStreamTag
-          name: ${NAME}:${APP_VERSION}
+          name: ${IMAGESTREAM_NAME}:${APP_VERSION}
           namespace: ${IMAGESTREAM_PROJECT}
       type: ImageChange
   status:
@@ -147,11 +147,16 @@ objects:
     labels:
       app: ${NAME}
       version: ${APP_VERSION}
-    name: ${NAME}
+    name: ${IMAGESTREAM_NAME}
 parameters:
 - description: The name assigned to all of the application objects defined in this template.
   displayName: Name
   name: NAME
+  required: true
+  value: demo-rest
+- description: The name of the image stream. Although it is almost everytime the same as the name of the app, there some cases that are not.
+  displayName: Image stream name
+  name: IMAGESTREAM_NAME
   required: true
   value: demo-rest
 - description: Application version used as tag for the image stream
