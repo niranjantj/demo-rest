@@ -133,6 +133,9 @@ objects:
   kind: Route
   metadata:
     name: ${NAME}
+    labels:
+      app: ${NAME}
+      version: ${APP_VERSION}
   spec:
     to:
       kind: Service
