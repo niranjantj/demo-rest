@@ -1,0 +1,39 @@
+kind: BuildConfig
+apiVersion: v1
+metadata:
+  name: demo-rest-pipeline
+spec:
+  source:
+    git:
+      uri: https://github.com/dsanchor/demo-cicd
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfilePath: pipeline/Jenkinsfile
+      env:
+        - name: JENKINS_PROJECT
+          value: devops
+        - name: CICD_GIT_URL
+          value: https://github.com/dsanchor/demo-cicd
+        - name: APP_GIT_URL
+          value: https://github.com/dsanchor/demo-rest
+        - name: APP_TEMPLATE
+          value: openshift/templates/demo-rest-template.yml
+        - name: APP_NAME
+          value: demo-rest
+        - name: CUSTOM_TEMPLATE_PARAMETERS
+          value: "-p REGISTRY=172.30.1.1:5000 -p IMAGESTREAM_PROJECT=development"
+        - name: IMAGESTREAM_PROJECT
+          value: development
+        - name: DEV_PROJECT
+          value: development
+        - name: TEST_PROJECT
+          value: test
+        - name: TEST_TAG
+          value: test
+        - name: PROD_PROJECT
+          value: production
+        - name: PROD_TAG
+          value: production
+        - name: NEXUS_RELEASE_REPOSITORY
+          value: http://nexus-devops.192.168.99.100.nip.io/nexus/content/repositories/releases
+
