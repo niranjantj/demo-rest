@@ -34,6 +34,9 @@ spec:
           value: production
         - name: PROD_TAG
           value: production
+        - name: NEXUS_URL
+          value: http://nexus-devops.192.168.99.100.nip.io
         - name: NEXUS_RELEASE_REPOSITORY
-          value: http://nexus-devops.192.168.99.100.nip.io/nexus/content/repositories/releases
+          value: /nexus/content/repositories/releases
+
 
