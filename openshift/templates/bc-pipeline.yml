@@ -35,7 +35,8 @@ spec:
         - name: PROD_TAG
           value: production
         - name: NEXUS_URL
-          value: http://nexus-devops.192.168.99.100.nip.io
+#          value: http://nexus-devops.192.168.99.100.nip.io
+          value: http://nexus-cicd.apps.ose.gerpizarro.com
         - name: NEXUS_RELEASE_REPOSITORY
           value: /nexus/content/repositories/releases
         - name: POSTMAN_TESTS_COLLECTION
