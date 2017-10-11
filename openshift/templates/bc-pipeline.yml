@@ -38,5 +38,13 @@ spec:
           value: http://nexus-devops.192.168.99.100.nip.io
         - name: NEXUS_RELEASE_REPOSITORY
           value: /nexus/content/repositories/releases
+        - name: POSTMAN_TESTS_COLLECTION
+          value: "https://raw.githubusercontent.com/dsanchor/demo-rest/master/openshift/tests/demo-rest.postman_collection.json"
+        - name: POSTMAN_DEV_ENVIRONMENT_CONFIG
+          value: "https://raw.githubusercontent.com/dsanchor/demo-rest/master/openshift/tests/environments/development.postman_environment.json"
+        - name: POSTMAN_TEST_ENVIRONMENT_CONFIG
+          value: "https://raw.githubusercontent.com/dsanchor/demo-rest/master/openshift/tests/environments/test.postman_environment.json"
+        - name: POSTMAN_PROD_ENVIRONMENT_CONFIG
+          value: "https://raw.githubusercontent.com/dsanchor/demo-rest/master/openshift/tests/environments/production.postman_environment.json"
 
 
