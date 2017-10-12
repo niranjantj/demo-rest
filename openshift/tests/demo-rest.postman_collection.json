@@ -34,6 +34,20 @@
 		},
 		{
 			"name": "http://{{host}}/demo (elements > 0)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Response is 721\"] = data==721;"
+						]
+					}
+				}
+			],
 			"request": {
 				"url": "http://{{host}}/demo",
 				"method": "POST",
