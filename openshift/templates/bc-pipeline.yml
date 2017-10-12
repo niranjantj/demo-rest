@@ -45,7 +45,9 @@ spec:
           value: "https://raw.githubusercontent.com/dsanchor/demo-rest/master/openshift/tests/environments/development.postman_environment.json"
         - name: POSTMAN_TEST_ENVIRONMENT_CONFIG
           value: "https://raw.githubusercontent.com/dsanchor/demo-rest/master/openshift/tests/environments/test.postman_environment.json"
-        - name: POSTMAN_PROD_ENVIRONMENT_CONFIG
+        - name: POSTMAN_ALTPROD_ENVIRONMENT_CONFIG
           value: "https://raw.githubusercontent.com/dsanchor/demo-rest/master/openshift/tests/environments/production-alternate.postman_environment.json"
+        - name: POSTMAN_PROD_ENVIRONMENT_CONFIG
+          value: "https://raw.githubusercontent.com/dsanchor/demo-rest/master/openshift/tests/environments/production.postman_environment.json"
 
 
