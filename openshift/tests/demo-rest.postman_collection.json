@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "http://{{host}}/demo",
+			"name": "http://{{host}}/demo (get 5 random values)",
 			"event": [
 				{
 					"listen": "test",
@@ -29,6 +29,60 @@
 				"header": [],
 				"body": {},
 				"description": "Simple get operation request"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{host}}/demo (elements > 0)",
+			"request": {
+				"url": "http://{{host}}/demo",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    27,\n    115,\n    151,\n    210,\n    218\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{host}}/demo (elements = 0)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Response is 0\"] = data===0;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://{{host}}/demo",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[]"
+				},
+				"description": ""
 			},
 			"response": []
 		}
