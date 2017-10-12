@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "http://{{host}}/demo (get 5 random values)",
+			"name": "http://{{host}}/demo (get 5 sorted values)",
 			"event": [
 				{
 					"listen": "test",
