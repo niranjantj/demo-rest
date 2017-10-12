@@ -43,7 +43,7 @@
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
 							"",
 							"var data = JSON.parse(responseBody);",
-							"tests[\"Response is 721\"] = data==721;"
+							"tests[\"Response is 722\"] = data==722;"
 						]
 					}
 				}
@@ -60,7 +60,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\n    27,\n    115,\n    151,\n    210,\n    218\n]"
+					"raw": "[\n    28,\n    115,\n    151,\n    210,\n    218\n]"
 				},
 				"description": ""
 			},
