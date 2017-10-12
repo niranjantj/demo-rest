@@ -2,8 +2,10 @@ package com.redhat.consulting.spring.demorest;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +28,17 @@ public class DemoRestController {
 			collection.add(number);
 		}
 		return collection;
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, path="/demo")
+	Integer sum(@RequestBody List<Integer> numbers) {
+		int result= 0;
+		if (numbers!=null && numbers.size()>0 ) {
+			for (int number : numbers) {
+				result += number;
+			}
+		}
+		return result;
 	}
 	
 
