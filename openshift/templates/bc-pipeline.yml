@@ -34,6 +34,8 @@ spec:
           value: production
         - name: PROD_TAG
           value: production
+        - name: SONAR_URL
+          value: http://sonarqube-cicd.apps.d-sancho.com 
         - name: NEXUS_URL
 #          value: http://nexus-devops.192.168.99.100.nip.io
           value: http://nexus-cicd.apps.d-sancho.com
