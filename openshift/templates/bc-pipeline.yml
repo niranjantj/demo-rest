@@ -11,7 +11,7 @@ spec:
       jenkinsfilePath: pipeline/Jenkinsfile
       env:
         - name: JENKINS_PROJECT
-          value: devops
+          value: cicd
         - name: CICD_GIT_URL
           value: https://github.com/dsanchor/demo-cicd
         - name: APP_GIT_URL
