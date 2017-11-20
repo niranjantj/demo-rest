@@ -6,7 +6,7 @@ This application has been implemented to complement a CI/CD pipeline described [
 
 It will just expose a REST Api with two operations:
 
-- GET /demo: returns a list of five different numbers in ascent order.
+- GET /demo: returns a list of five different numbers in ascendant order.
 - POST /demo: returns the total sum of the value of the elements provided in the request
 
 ## Application structure
