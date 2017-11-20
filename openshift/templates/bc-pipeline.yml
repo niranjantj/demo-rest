@@ -20,8 +20,8 @@ spec:
           value: openshift/templates/demo-rest-template.yml
         - name: APP_NAME
           value: demo-rest
-        - name: CUSTOM_TEMPLATE_PARAMETERS
-          value: ""
+#        - name: CUSTOM_TEMPLATE_PARAMETERS
+#          value: "-p YOUR_PARAM1=x p YOUR_PARAM2=y"
         - name: IMAGESTREAM_PROJECT
           value: dsancho-dev
         - name: DEV_PROJECT
