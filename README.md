@@ -80,3 +80,20 @@ It is important to get familiar with some Openshift concepts and objects, such a
 
 
 ### Tests
+
+A set of tools are used to perform integration testing for the REST service. These tools are:
+- [Postman](https://www.getpostman.com/postman): we will use it to create a tests collection as well as create the environment configurations. There is a PRO- subscription, which add some extra capabilities, but for this demo we will use the free version. 	
+- [Newman](https://www.getpostman.com/docs/postman/collection_runs/command_line_integration_with_newman): command line utility to run our Postman tests against a given environment configuration. 
+
+We keep the tests collection and the environment configurations stored in our application git repository, so adding a new test to this collection would be as easy as import the test collection in our Postman tool, create a new test and then, export it and commit it again to the git repository. As mentioned before, we are using a free Postman version, which does not provide any synchronization and source control management for our tests collections. Pro- version provides these capabilities. 
+
+Once we have added a new test to the collection, next pipeline run will automatically include this new test and will perform all the tests against the application in all environments.
+
+You could find a simple set of tests developed for this demo under openshift/tests. In that folder, you have:
+- the [test collection](https://github.com/dsanchor/demo-rest/blob/master/openshift/tests/demo-rest.postman_collection.json)
+- the [environments definition](https://github.com/dsanchor/demo-rest/tree/master/openshift/tests/environments)
+
+After a tests collection has run against a given environment, we will see a detail report about the tests results. Example of this report is shown below:
+
+![Screenshot](test-results.png)
+
