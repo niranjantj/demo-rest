@@ -23,7 +23,7 @@ spec:
         - name: CUSTOM_TEMPLATE_PARAMETERS
           value: ""
         - name: IMAGESTREAM_PROJECT
-          value: development
+          value: dsancho-dev
         - name: DEV_PROJECT
           value: dsancho-dev
         - name: TEST_PROJECT
