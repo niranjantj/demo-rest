@@ -21,7 +21,8 @@ spec:
         - name: APP_NAME
           value: demo-rest
         - name: CUSTOM_TEMPLATE_PARAMETERS
-          value: "-p REGISTRY=172.30.1.1:5000 -p IMAGESTREAM_PROJECT=development"
+          value: "-p IMAGESTREAM_PROJECT=development"
+#          value: "-p REGISTRY=172.30.1.1:5000 -p IMAGESTREAM_PROJECT=development"
         - name: IMAGESTREAM_PROJECT
           value: development
         - name: DEV_PROJECT
