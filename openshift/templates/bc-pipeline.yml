@@ -21,18 +21,17 @@ spec:
         - name: APP_NAME
           value: demo-rest
         - name: CUSTOM_TEMPLATE_PARAMETERS
-          value: "-p IMAGESTREAM_PROJECT=development"
-#          value: "-p REGISTRY=172.30.1.1:5000 -p IMAGESTREAM_PROJECT=development"
+          value: ""
         - name: IMAGESTREAM_PROJECT
           value: development
         - name: DEV_PROJECT
-          value: development
+          value: dsancho-dev
         - name: TEST_PROJECT
-          value: test
+          value: dsancho-test
         - name: TEST_TAG
           value: test
         - name: PROD_PROJECT
-          value: production
+          value: dsancho-prod
         - name: PROD_TAG
           value: production
         - name: SONAR_URL
