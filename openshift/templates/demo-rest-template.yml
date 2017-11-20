@@ -69,7 +69,7 @@ objects:
                 fieldPath: metadata.namespace
           - name: JAVA_APP_DIR
             value: /deployments
-          image: ${REGISTRY}/${IMAGESTREAM_PROJECT}/${NAME}:${APP_VERSION}
+          image: ${IMAGESTREAM_PROJECT}/${NAME}:${APP_VERSION}
           imagePullPolicy: IfNotPresent
           name: spring-boot
           ports:
