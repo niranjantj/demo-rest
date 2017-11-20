@@ -163,10 +163,6 @@ parameters:
   displayName: Application version
   name: APP_VERSION
   required: true
-- description: Ip and port to registry (172.30.1.1:5000)
-  displayName: Registry ip:port (172.30.1.1:5000)
-  name: REGISTRY
-  required: true
 - description: Project name where the imagestream resides
   displayName: Imagestream project
   name: IMAGESTREAM_PROJECT
