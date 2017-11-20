@@ -76,6 +76,8 @@ Then, we have to set all the parameters to make this generic pipeline behave as 
 
 We also have to describe how the application looks like in Openshift. For this purpose, I have used an [Openshift template](https://docs.openshift.com/container-platform/3.6/dev_guide/templates.html) that will be used by the pipeline to create all the objects required by Openshift in any environment (DEV, TEST, PROD and so on..).
 
+Some of the parameters defined in the pipeline are used by the application template as well,so based on these parameters, we will be able to reuse the application template in all environments and create different objects.
+
 It is important to get familiar with some Openshift concepts and objects, such as ImageStream, BuildConfig, DeploymentConfig in order to fully understand an Openshift template.
 
 
