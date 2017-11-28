@@ -17,7 +17,7 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: ${NAME}:${APP_VERSION}
+        name: ${NAME}:${IMAGESTREAM_TAG}
     postCommit: {}
     resources: {}
     runPolicy: Serial
@@ -69,7 +69,7 @@ objects:
                 fieldPath: metadata.namespace
           - name: JAVA_APP_DIR
             value: /deployments
-          image: ${IMAGESTREAM_PROJECT}/${NAME}:${APP_VERSION}
+          image: ${IMAGESTREAM_PROJECT}/${NAME}:${IMAGESTREAM_TAG}
           imagePullPolicy: IfNotPresent
           name: spring-boot
           ports:
@@ -99,7 +99,7 @@ objects:
         - spring-boot
         from:
           kind: ImageStreamTag
-          name: ${IMAGESTREAM_NAME}:${APP_VERSION}
+          name: ${IMAGESTREAM_NAME}:${IMAGESTREAM_TAG}
           namespace: ${IMAGESTREAM_PROJECT}
       type: ImageChange
   status:
@@ -146,7 +146,7 @@ objects:
     generation: 1
     labels:
       app: ${NAME}
-      version: ${APP_VERSION}
+      version: ${IMAGESTREAM_TAG}
     name: ${IMAGESTREAM_NAME}
 parameters:
 - description: The name assigned to all of the application objects defined in this template.
@@ -159,6 +159,10 @@ parameters:
   name: IMAGESTREAM_NAME
   required: true
   value: demo-rest
+- description: Image stream tag used by the application deployment
+  displayName: Image stream tag
+  name: IMAGESTREAM_TAG
+  required: true
 - description: Application version used as tag for the image stream
   displayName: Application version
   name: APP_VERSION
@@ -167,4 +171,3 @@ parameters:
   displayName: Imagestream project
   name: IMAGESTREAM_PROJECT
   required: true
-
