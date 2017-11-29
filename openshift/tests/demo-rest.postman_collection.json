@@ -43,7 +43,7 @@
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
 							"",
 							"var data = JSON.parse(responseBody);",
-							"tests[\"Response is 722\"] = data==7223;"
+							"tests[\"Response is 722\"] = data==722;"
 						]
 					}
 				}
