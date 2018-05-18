@@ -69,7 +69,8 @@ objects:
                 fieldPath: metadata.namespace
           - name: JAVA_APP_DIR
             value: /deployments
-          image: docker-registry.default.svc:5000/${IMAGESTREAM_PROJECT}/${NAME}:${IMAGESTREAM_TAG}
+          #image: docker-registry.default.svc:5000/${IMAGESTREAM_PROJECT}/${NAME}:${IMAGESTREAM_TAG}
+          image: 172.30.1.1:5000/${IMAGESTREAM_PROJECT}/${NAME}:${IMAGESTREAM_TAG}
           imagePullPolicy: IfNotPresent
           name: spring-boot
           ports:
