@@ -15,11 +15,11 @@ spec:
         - name: APP_NAME
           value: demo-rest
         - name: IMAGESTREAM_PROJECT
-          value: dsancho-dev
+          value: development
         - name: TEST_PROJECT
-          value: dsancho-test
+          value: test
         - name: PROD_PROJECT
-          value: dsancho-prod
+          value: production
         - name: POSTMAN_TESTS_COLLECTION
           value: "https://raw.githubusercontent.com/dsanchor/demo-rest/master/openshift/tests/demo-rest.postman_collection.json"
         - name: POSTMAN_TEST_ENVIRONMENT_CONFIG
