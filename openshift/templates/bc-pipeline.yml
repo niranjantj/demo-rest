@@ -23,22 +23,22 @@ spec:
 #        - name: CUSTOM_TEMPLATE_PARAMETERS
 #          value: "-p YOUR_PARAM1=x p YOUR_PARAM2=y"
         - name: IMAGESTREAM_PROJECT
-          value: dsancho-dev
+          value: development
         - name: DEV_PROJECT
-          value: dsancho-dev
+          value: development
         - name: TEST_PROJECT
-          value: dsancho-test
+          value: test
         - name: TEST_TAG
           value: test
         - name: PROD_PROJECT
-          value: dsancho-prod
+          value: production
         - name: PROD_TAG
           value: production
         - name: SONAR_URL
           value: http://sonarqube-cicd.apps.d-sancho.com 
         - name: NEXUS_URL
 #          value: http://nexus-devops.192.168.99.100.nip.io
-          value: http://nexus-cicd.apps.d-sancho.com
+          value: http://nexus-cicd.192.168.42.193.nip.io
         - name: NEXUS_RELEASE_REPOSITORY
           value: /nexus/content/repositories/releases
         - name: POSTMAN_TESTS_COLLECTION
