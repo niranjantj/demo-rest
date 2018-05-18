@@ -3,7 +3,7 @@
 
 	<groupId>com.redhat.consulting.spring</groupId>
 	<artifactId>demo-rest</artifactId>
-	<version>1.1.9</version>
+	<version>1.1.10</version>
 	<packaging>jar</packaging>
 
 	<name>demo-rest</name>
