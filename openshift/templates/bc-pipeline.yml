@@ -13,9 +13,9 @@ spec:
         - name: JENKINS_PROJECT
           value: cicd
         - name: CICD_GIT_URL
-          value: https://github.com/dsanchor/demo-cicd
+          value: https://github.com/niranjantj/demo-cicd
         - name: APP_GIT_URL
-          value: https://github.com/dsanchor/demo-rest
+          value: https://github.com/niranjantj/demo-rest
         - name: APP_TEMPLATE
           value: openshift/templates/demo-rest-template.yml
         - name: APP_NAME
@@ -35,10 +35,10 @@ spec:
         - name: PROD_TAG
           value: production
         - name: SONAR_URL
-          value: http://sonarqube-cicd.192.168.42.193.nip.io
+          value: http://sonarqube-cicd.139.59.78.16.nip.io
         - name: NEXUS_URL
-#          value: http://nexus-devops.192.168.99.100.nip.io
-          value: http://nexus-cicd.192.168.42.193.nip.io
+#          value: http://nexus-cicd.139.59.78.16.nip.io/
+          value: http://nexus-cicd.139.59.78.16.nip.io/
         - name: NEXUS_RELEASE_REPOSITORY
           value: /nexus/content/repositories/releases
         - name: POSTMAN_TESTS_COLLECTION
